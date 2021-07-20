@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "MVVM Example"
+rootProject.name = "Nuwe Login"

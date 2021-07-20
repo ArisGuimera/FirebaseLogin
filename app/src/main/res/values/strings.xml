@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Nuwe Login</string>
+    <string name="login_subtitle"><![CDATA[Empoyering tech amazing individuals to shine trough hackathons, talks & challenges]]></string>
+    <string name="login_sign_in">¿Todavía no tienes cuenta? Regístrate</string>
+    <string name="login_button_loggin">INICIAR SESIÓN</string>
+    <string name="login_hint_password">Contraseña</string>
+    <string name="login_hint_user">Usuario o correo</string>
 </resources>

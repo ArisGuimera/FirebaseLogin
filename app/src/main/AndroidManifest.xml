@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMExample">
-        <activity android:name=".login.ui.LoginActivity"></activity>
-        <activity android:name=".ui.view.MainActivity">
+        <activity android:name=".ui.view.MainActivity"></activity>
+        <activity android:name=".login.ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -12,7 +12,6 @@ class IntroductionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIntroductionBinding
     private val introductionViewModel: IntroductionViewModel by viewModels()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIntroductionBinding.inflate(layoutInflater)

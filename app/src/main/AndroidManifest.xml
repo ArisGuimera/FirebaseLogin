@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMExample">
-        <activity android:name=".ui.signin.SignInActivity"></activity>
+        <activity android:name=".ui.verification.VerificationActivity"></activity>
+        <activity android:name=".ui.signin.SignInActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.view.MainActivity" />
         <activity android:name=".ui.introduction.IntroductionActivity">

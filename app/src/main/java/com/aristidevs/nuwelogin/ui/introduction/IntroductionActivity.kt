@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.aristidevs.nuwelogin.databinding.ActivityIntroductionBinding
+import com.aristidevs.nuwelogin.ui.login.LoginActivity
 
 class IntroductionActivity : AppCompatActivity() {
 
@@ -24,7 +25,7 @@ class IntroductionActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        with(binding){
+        with(binding) {
             btnLogin.setOnClickListener { introductionViewModel.onLoginSelected() }
             btnSingIn.setOnClickListener { introductionViewModel.onSignInSelected() }
         }
@@ -45,6 +46,6 @@ class IntroductionActivity : AppCompatActivity() {
     }
 
     private fun goToLogin() {
-
+        startActivity(LoginActivity.create(this))
     }
 }

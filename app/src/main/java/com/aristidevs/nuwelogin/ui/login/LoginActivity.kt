@@ -1,5 +1,7 @@
 package com.aristidevs.nuwelogin.ui.login
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +13,12 @@ import com.aristidevs.nuwelogin.databinding.ActivityLoginBinding
 import kotlinx.coroutines.flow.collect
 
 class LoginActivity : AppCompatActivity() {
+
+    companion object {
+        fun create(context: Context): Intent =
+            Intent(context, LoginActivity::class.java)
+
+    }
 
     private lateinit var binding: ActivityLoginBinding
     private val loginViewModel: LoginViewModel by viewModels()
@@ -29,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initListeners() {
         binding.tvForgotPassword.setOnClickListener { loginViewModel.onForgotPasswordSelected() }
-        binding.tvSignIn.setOnClickListener { loginViewModel.onSignInSelected() }
+        binding.viewBottom.tvSignIn.setOnClickListener { loginViewModel.onSignInSelected() }
         binding.btnLogin.setOnClickListener {
             loginViewModel.onLoginSelected(
                 binding.etUser.text.toString(),

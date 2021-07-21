@@ -4,6 +4,8 @@ General
     //SPLASH
     //portrait
     //navigator
+    //manifest
+    //borrar mainactivity
 
 LoginActivity
     //1- El button deshabilitado en gris
@@ -12,3 +14,4 @@ LoginActivity
     //4- Login social
     //5- Iconos
     //viewmodel privado
+    //dialogo

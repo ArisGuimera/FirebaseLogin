@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMExample">
         <activity android:name=".ui.view.MainActivity"></activity>
-        <activity android:name=".login.ui.LoginActivity">
+        <activity android:name="com.aristidevs.nuwelogin.ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

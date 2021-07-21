@@ -10,3 +10,4 @@ LoginActivity
     //3- Login
     //4- Login social
     //5- Iconos
+    //viewmodel privado

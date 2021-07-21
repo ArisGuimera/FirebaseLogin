@@ -1,10 +1,14 @@
-package com.aristidevs.nuwelogin.login.ui
+package com.aristidevs.nuwelogin.ui.login
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.aristidevs.nuwelogin.core.ex.onTextChanged
 import com.aristidevs.nuwelogin.databinding.ActivityLoginBinding
+import kotlinx.coroutines.flow.collect
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,8 +28,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        binding.tvForgotPassword.setOnClickListener { goToForgotPassword() }
-        binding.tvSignIn.setOnClickListener { goToSignIn() }
+        binding.tvForgotPassword.setOnClickListener { loginViewModel.onForgotPasswordSelected() }
+        binding.tvSignIn.setOnClickListener { loginViewModel.onSignInSelected() }
         binding.btnLogin.setOnClickListener {
             loginViewModel.onLoginSelected(
                 binding.etUser.text.toString(),
@@ -45,6 +49,36 @@ class LoginActivity : AppCompatActivity() {
                 password = it
             )
         }
+
+        loginViewModel.navigateToDetails.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                goToDetail()
+            }
+        })
+
+        loginViewModel.navigateToSignIn.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                goToSignIn()
+            }
+        })
+
+        loginViewModel.navigateToForgotPassword.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                goToForgotPassword()
+            }
+        })
+
+        lifecycleScope.launchWhenStarted {
+            loginViewModel.viewState.collect { viewState ->
+                updateUI(viewState)
+            }
+        }
+    }
+
+    private fun updateUI(viewState: LoginViewState) {
+        with(binding) {
+            pbLoading.isVisible = viewState.loading
+        }
     }
 
     private fun initObservers() {
@@ -58,6 +92,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToSignIn() {
+
+    }
+
+    private fun goToDetail() {
 
     }
 }

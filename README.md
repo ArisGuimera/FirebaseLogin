@@ -3,6 +3,7 @@ General
     //BaseActivity
     //SPLASH
     //portrait
+    //navigator
 
 LoginActivity
     //1- El button deshabilitado en gris

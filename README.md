@@ -1,6 +1,8 @@
 TODO
 General
     //BaseActivity
+    //SPLASH
+    //portrait
 
 LoginActivity
     //1- El button deshabilitado en gris

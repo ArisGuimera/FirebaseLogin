@@ -26,7 +26,12 @@ class LoginActivity : AppCompatActivity() {
     private fun initListeners() {
         binding.tvForgotPassword.setOnClickListener { goToForgotPassword() }
         binding.tvSignIn.setOnClickListener { goToSignIn() }
-        binding.btnLogin.setOnClickListener { loginViewModel.onLoginSelected() }
+        binding.btnLogin.setOnClickListener {
+            loginViewModel.onLoginSelected(
+                binding.etUser.text.toString(),
+                binding.etPassword.text.toString()
+            )
+        }
 
         binding.etUser.onTextChanged {
             loginViewModel.onFieldsChanged(

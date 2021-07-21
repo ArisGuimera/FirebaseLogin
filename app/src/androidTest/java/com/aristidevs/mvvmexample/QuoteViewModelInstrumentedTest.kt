@@ -19,6 +19,6 @@ class QuoteViewModelInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.cursokotlin.mvvmexample", appContext.packageName)
+        assertEquals("com.aristidevs.nuwelogin", appContext.packageName)
     }
 }

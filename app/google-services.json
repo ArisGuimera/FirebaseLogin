@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "388859922737",
+    "project_id": "nuweproject",
+    "storage_bucket": "nuweproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388859922737:android:c4a9dead488a06c865c810",
+        "android_client_info": {
+          "package_name": "com.aristidevs.nuwelogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388859922737-os8tf889jvm11dku361qo9s0qg314i80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk909aev4bqCcCh1hJZj9k2ee5zdC-WqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388859922737-os8tf889jvm11dku361qo9s0qg314i80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

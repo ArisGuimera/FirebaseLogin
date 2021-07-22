@@ -6,6 +6,7 @@ General
     //navigator
     //manifest
     //borrar mainactivity
+    //borrar quotes
 
 LoginActivity
     //1- El button deshabilitado en gris

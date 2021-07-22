@@ -7,7 +7,6 @@ import javax.inject.Inject
 
 class VerifyEmailUseCase @Inject constructor(private val authenticationService: AuthenticationService) {
 
-    operator fun invoke(): Flow<Boolean> =
-        authenticationService.verifyEmail().distinctUntilChanged()
+    operator fun invoke() = authenticationService.verifiedAccount
 
 }

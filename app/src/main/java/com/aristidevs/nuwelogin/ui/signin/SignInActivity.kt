@@ -7,7 +7,9 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.aristidevs.nuwelogin.databinding.ActivitySignInBinding
+import com.aristidevs.nuwelogin.ui.verification.VerificationActivity
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class SignInActivity : AppCompatActivity() {
@@ -25,6 +27,7 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initUI()
+        Timber.i("aristides awdfafwf")
     }
 
     private fun initUI() {
@@ -48,7 +51,6 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun goToVerifyEmail() {
-//        startActivity()
-        Toast.makeText(this, "Ddawd", Toast.LENGTH_LONG).show()
+        startActivity(VerificationActivity.create(this))
     }
 }

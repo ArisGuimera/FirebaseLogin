@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.aristidevs.nuwelogin.databinding.ActivityIntroductionBinding
 import com.aristidevs.nuwelogin.ui.login.LoginActivity
+import com.aristidevs.nuwelogin.ui.signin.SignInActivity
 
 class IntroductionActivity : AppCompatActivity() {
 
@@ -41,7 +42,7 @@ class IntroductionActivity : AppCompatActivity() {
     }
 
     private fun goToSingIn() {
-
+        startActivity(SignInActivity.create(this))
     }
 
     private fun goToLogin() {

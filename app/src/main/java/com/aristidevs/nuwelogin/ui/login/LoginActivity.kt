@@ -10,8 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.aristidevs.nuwelogin.core.ex.onTextChanged
 import com.aristidevs.nuwelogin.databinding.ActivityLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     companion object {
@@ -76,6 +78,12 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
+        loginViewModel.navigateToVerifyAccount.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                goToVerify()
+            }
+        })
+
         lifecycleScope.launchWhenStarted {
             loginViewModel.viewState.collect { viewState ->
                 updateUI(viewState)
@@ -104,6 +112,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToDetail() {
+
+    }
+
+    private fun goToVerify() {
 
     }
 }

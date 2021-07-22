@@ -1,5 +1,6 @@
 package com.aristidevs.nuwelogin.ui.login
 
+import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -32,6 +33,10 @@ class LoginViewModel @Inject constructor(val loginUseCase: LoginUseCase) : ViewM
     val navigateToSignIn: LiveData<Event<Boolean>>
         get() = _navigateToSignIn
 
+    private val _navigateToVerifyAccount = MutableLiveData<Event<Boolean>>()
+    val navigateToVerifyAccount: LiveData<Event<Boolean>>
+        get() = _navigateToVerifyAccount
+
 
     private val _viewState = MutableStateFlow(LoginViewState())
     val viewState: StateFlow<LoginViewState>
@@ -42,10 +47,15 @@ class LoginViewModel @Inject constructor(val loginUseCase: LoginUseCase) : ViewM
     fun onLoginSelected(email: String, password: String) {
         viewModelScope.launch {
             _viewState.value = LoginViewState(loading = true)
-            val successResult: Boolean = loginUseCase(email, password)
-            if (successResult) {
+            val loginResult = loginUseCase(email, password)
+            if (loginResult.success) {
+                if(loginResult.verified){
+                    _navigateToVerifyAccount.value = Event(true)
+                }else{
                 _navigateToDetails.value = Event(true)
+                }
             } else {
+                Log.i("Aris", "ARIS 2")
                 _viewState.value = LoginViewState(error = true)
             }
         }

@@ -7,4 +7,9 @@
     <string name="login_hint_user">Usuario o correo</string>
     <string name="introduction_button_signin">Crear cuenta</string>
     <string name="verification_button_go_to_nuwe">Vamos a nuwe</string>
+    <string name="signin_form_real_name">Nombre completo</string>
+    <string name="signin_form_nickname">Nombre público de usuario</string>
+    <string name="signin_form_email">Correo electrónico</string>
+    <string name="signin_form_password">Contraseña</string>
+    <string name="signin_form_repeat_password">Repetir contraseña</string>
 </resources>

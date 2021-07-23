@@ -42,27 +42,30 @@ class LoginViewModel @Inject constructor(val loginUseCase: LoginUseCase) : ViewM
     val viewState: StateFlow<LoginViewState>
         get() = _viewState
 
-    val loginButtonStatus = MutableLiveData<Boolean>()
-
     fun onLoginSelected(email: String, password: String) {
         viewModelScope.launch {
-            _viewState.value = LoginViewState(loading = true)
+            _viewState.value = LoginViewState(isLoading = true)
             val loginResult = loginUseCase(email, password)
             if (loginResult.success) {
-                if(loginResult.verified){
+                if (loginResult.verified) {
                     _navigateToVerifyAccount.value = Event(true)
-                }else{
-                _navigateToDetails.value = Event(true)
+                } else {
+                    _navigateToDetails.value = Event(true)
                 }
             } else {
                 Log.i("Aris", "ARIS 2")
-                _viewState.value = LoginViewState(error = true)
+//                _viewState.value = LoginViewState(error = true)
             }
         }
     }
 
     fun onFieldsChanged(email: String, password: String) {
-        loginButtonStatus.postValue(isValidEmail(email) && isValidPassword(password))
+        _viewState.value =
+            LoginViewState(
+                isLoginEnabled = isValidOrEmptyEmail(email) && isValidOrEmptyPassword(password),
+                isValidEmail = isValidOrEmptyEmail(email),
+                isValidPassword = isValidOrEmptyPassword(password)
+            )
     }
 
     fun onForgotPasswordSelected() {
@@ -73,8 +76,8 @@ class LoginViewModel @Inject constructor(val loginUseCase: LoginUseCase) : ViewM
         _navigateToSignIn.value = Event(true)
     }
 
-    private fun isValidEmail(email: String) = Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    private fun isValidPassword(password: String): Boolean = password.length >= MIN_PASSWORD_LENGTH
+    private fun isValidOrEmptyEmail(email: String) = Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()
+    private fun isValidOrEmptyPassword(password: String): Boolean = password.length >= MIN_PASSWORD_LENGTH || password.isEmpty()
 
 
 }

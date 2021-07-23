@@ -1,6 +1,8 @@
 package com.aristidevs.nuwelogin.ui.login
 
 data class LoginViewState(
-    val loading: Boolean = false,
-    val error: Boolean = false
+    val isLoading: Boolean = false,
+    val isLoginEnabled: Boolean = false,
+    val isValidEmail: Boolean = true,
+    val isValidPassword: Boolean = true
 )

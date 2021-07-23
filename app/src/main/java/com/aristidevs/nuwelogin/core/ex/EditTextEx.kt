@@ -14,3 +14,13 @@ fun EditText.onTextChanged(listener: (String) -> Unit) {
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
     })
 }
+
+fun EditText.loseFocusAfterAction(action: Int) {
+    this.setOnEditorActionListener { v, actionId, _ ->
+        if (actionId == action) {
+            this.dismissKeyboard()
+            v.clearFocus()
+        }
+        return@setOnEditorActionListener false
+    }
+}

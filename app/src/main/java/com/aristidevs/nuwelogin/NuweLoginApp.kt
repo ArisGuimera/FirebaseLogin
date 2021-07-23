@@ -7,9 +7,11 @@ import timber.log.Timber.DebugTree
 
 
 @HiltAndroidApp
-class NuweLoginApp:Application(){
+class NuweLoginApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        Timber.plant(DebugTree())
+        if (BuildConfig.DEBUG) {
+            Timber.plant(DebugTree())
+        }
     }
 }

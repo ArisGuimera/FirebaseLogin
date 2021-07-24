@@ -19,7 +19,7 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(val loginUseCase: LoginUseCase) : ViewModel() {
 
     private companion object {
-        const val MIN_PASSWORD_LENGTH = 8
+        const val MIN_PASSWORD_LENGTH = 6
     }
 
     private val _navigateToDetails = MutableLiveData<Event<Boolean>>()

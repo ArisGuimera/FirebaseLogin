@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import androidx.core.view.isGone
 import androidx.fragment.app.DialogFragment
 import com.aristidevs.nuwelogin.databinding.DialogErrorBinding
 
@@ -49,8 +50,12 @@ class ErrorDialog : DialogFragment() {
 
         binding.tvTitle.text = title
         binding.tvDescription.text = description
-        binding.btnNegative.text = negativeAction.text
-        binding.btnNegative.setOnClickListener { negativeAction.onClickListener(this) }
+        if (negativeAction == Action.Empty) {
+            binding.btnNegative.isGone = true
+        } else {
+            binding.btnNegative.text = negativeAction.text
+            binding.btnNegative.setOnClickListener { negativeAction.onClickListener(this) }
+        }
         binding.btnPositive.text = positiveAction.text
         binding.btnPositive.setOnClickListener { positiveAction.onClickListener(this) }
         isCancelable = isDialogCancelable

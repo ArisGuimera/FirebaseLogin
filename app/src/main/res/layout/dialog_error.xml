@@ -16,7 +16,7 @@
         android:layout_marginTop="16dp"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Dirección del vehículo" />
+        tools:text="Título" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDescription"
@@ -26,7 +26,7 @@
         android:layout_marginTop="8dp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        tools:text="A veces aparecen en calles contiguas, asegúrate de que el vehículo no se encuentra en otra localización cercana." />
+        tools:text="Body" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/btnPositive"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text=":Reintentar"
+        tools:text=":Reintentar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text=":Cancelar"
+        tools:text=":Cancelar"
         app:layout_constraintEnd_toStartOf="@+id/btnPositive"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 

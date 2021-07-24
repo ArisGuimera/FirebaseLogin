@@ -112,9 +112,9 @@ class LoginActivity : AppCompatActivity() {
         with(binding) {
             pbLoading.isVisible = viewState.isLoading
             btnLogin.isEnabled = viewState.isLoginEnabled
-            binding.tilEmail.error =
+            tilEmail.error =
                 if (viewState.isValidEmail) null else getString(R.string.login_error_mail)
-            binding.tilPassword.error =
+            tilPassword.error =
                 if (viewState.isValidPassword) null else getString(R.string.login_error_password)
         }
     }

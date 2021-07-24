@@ -1,3 +1,6 @@
 package com.aristidevs.nuwelogin.data.response
 
-data class LoginResponse(val success:Boolean, val verified:Boolean)
+sealed class LoginResult {
+    object Error : LoginResult()
+    data class Success(val verified: Boolean) : LoginResult()
+}

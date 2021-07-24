@@ -20,6 +20,21 @@
         <!--        <font-->
     </style>
 
+    <style name="BodyText" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/secondary</item>
+        <item name="android:gravity">center</item>
+        <!--        <font-->
+    </style>
+
+    <style name="TitleText" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondary</item>
+        <item name="android:gravity">center</item>
+        <!--        <font-->
+    </style>
+
     <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textSize">12sp</item>
         <item name="textAllCaps">true</item>

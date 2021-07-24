@@ -1,6 +1,6 @@
 package com.aristidevs.nuwelogin.data.network
 
-import com.aristidevs.nuwelogin.data.response.LoginResponse
+import com.aristidevs.nuwelogin.data.response.LoginResult
 import com.google.firebase.auth.AuthResult
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -21,10 +21,9 @@ class AuthenticationService @Inject constructor(private val firebase: FirebaseCl
         }
     }
 
-    suspend fun login(email: String, password: String): LoginResponse {
-        val auth = firebase.auth.signInWithEmailAndPassword(email, password).await()
-        return LoginResponse(success = auth != null, verified = auth.user?.isEmailVerified ?: false)
-    }
+    suspend fun login(email: String, password: String): LoginResult = runCatching {
+        firebase.auth.signInWithEmailAndPassword(email, password).await()
+    }.toLoginResult()
 
     //Peta con mal mail
     suspend fun createAccount(email: String, password: String): AuthResult? {
@@ -39,5 +38,15 @@ class AuthenticationService @Inject constructor(private val firebase: FirebaseCl
         firebase.auth.currentUser?.reload()?.await()
         return firebase.auth.currentUser?.isEmailVerified ?: false
     }
+
+    private fun Result<AuthResult>.toLoginResult() = when (val result = getOrNull()) {
+        null -> LoginResult.Error
+        else -> {
+            val userId = result.user
+            checkNotNull(userId)
+            LoginResult.Success(result.user?.isEmailVerified ?: false)
+        }
+    }
+
 
 }

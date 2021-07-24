@@ -7,12 +7,32 @@ General
     //manifest
     //borrar mainactivity
     //borrar quotes
-
-LoginActivity
+    //4- Login social
+    //viewmodel privados
+        //dialogo
     //1- El button deshabilitado en gris
     //2- El spannable del texto final
-    //3- Login
-    //4- Login social
-    //5- Iconos
-    //viewmodel privado
-    //dialogo
+    //Crear DEtail
+
+    fuente
+
+    textos dialogo
+
+
+    listeners al escribir pero sin mostrar error
+    el boton de login pensar que hacer si deshabilitar o que
+
+    UPDATES
+
+   cambiar toast por lo otro
+
+
+
+
+   //BUGS
+
+   CREAR CUENTA CON DATOS MAL PETA
+   LOGIN -> Poner mal los datos, que salga el diálogo y si le das a cancelar el boton está disabled
+
+//Extras
+login social

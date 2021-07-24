@@ -27,7 +27,6 @@
         style="@style/FormTextInputLayout"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:layout_marginLeft="16dp"
         app:layout_constraintBottom_toTopOf="@+id/tilPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

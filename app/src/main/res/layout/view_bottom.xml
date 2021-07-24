@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_google" />
+            android:src="@drawable/ic_linkedin" />
 
     </androidx.cardview.widget.CardView>
 
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_google" />
+            android:src="@drawable/ic_github" />
 
     </androidx.cardview.widget.CardView>
 
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_google" />
+            android:src="@drawable/ic_discord" />
 
     </androidx.cardview.widget.CardView>
 
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_google" />
+            android:src="@drawable/ic_twitter" />
 
     </androidx.cardview.widget.CardView>
 
@@ -102,13 +102,13 @@
         android:layout_height="0.5dp"
         android:layout_marginBottom="16dp"
         android:background="@color/primary_dark"
-        app:layout_constraintBottom_toTopOf="@+id/tvSignIn"
+        app:layout_constraintBottom_toTopOf="@+id/tvFooter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvSignIn"
+        android:id="@+id/tvFooter"
         style="@style/CaptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

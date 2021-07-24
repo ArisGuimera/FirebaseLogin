@@ -73,6 +73,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.7.2'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

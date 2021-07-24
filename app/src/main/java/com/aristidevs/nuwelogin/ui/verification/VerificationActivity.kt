@@ -3,12 +3,11 @@ package com.aristidevs.nuwelogin.ui.verification
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.aristidevs.nuwelogin.databinding.ActivityVerificationBinding
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class VerificationActivity : AppCompatActivity() {
@@ -30,13 +29,23 @@ class VerificationActivity : AppCompatActivity() {
 
     private fun initUI() {
         initListeners()
+        initObservers()
     }
 
     private fun initListeners() {
-        verificationViewModel.navigateToVerifyAccount.observe(this,  {
+        binding.btnGoToDetail.setOnClickListener { verificationViewModel.onGoToDetailSelected() }
+    }
+
+    private fun initObservers() {
+        verificationViewModel.navigateToVerifyAccount.observe(this, {
             it.getContentIfNotHandled()?.let {
-                Toast.makeText(this, "dawdawd", Toast.LENGTH_LONG).show()
-                Timber.i("aristides 1")
+
+            }
+        })
+
+        verificationViewModel.showContinueButton.observe(this, {
+            it.getContentIfNotHandled()?.let {
+                binding.btnGoToDetail.isVisible = true
             }
         })
     }

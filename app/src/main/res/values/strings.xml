@@ -15,10 +15,7 @@
     <string name="login_error_dialog_negative_action">Cancelar</string>
     <string name="login_error_dialog_positive_action">Reintentar</string>
 
-
     <string name="introduction_button_signin">Crear cuenta</string>
-
-    <string name="verification_button_go_to_nuwe">Vamos a nuwe</string>
 
     <string name="signin_form_real_name">Nombre completo</string>
     <string name="signin_form_nickname">Nombre público de usuario</string>
@@ -29,12 +26,15 @@
     <string name="signin_error_nickname">Debe contener al menos 6 caracteres</string>
     <string name="signin_error_realname">Debe contener al menos 6 caracteres</string>
     <string name="signin_error_password">Las 2 contraseñas debes ser iguales</string>
-
-    <string name="feature_not_allowed">No se pedía en la prueba.</string>
     <string name="signin_footer_unselected">¿Ya tienes cuenta?</string>
     <string name="signin_footer_selected">Inicia sesión</string>
     <string name="signin_error_dialog_title">Ha ocurrido un error</string>
     <string name="signin_error_dialog_body">No hemos podido crear tu cuenta, inténtalo de nuevo más tarde</string>
     <string name="signin_error_dialog_positive_action">Okey :(</string>
+
+    <string name="verification_button_go_to_nuwe">Vamos a nuwe</string>
+    <string name="verification_check_mail">Para acceder a la aplicación verifica tu correo electrónico (recuerda mirar en SPAM).</string>
+
+    <string name="feature_not_allowed">No se pedía en la prueba.</string>
 
 </resources>

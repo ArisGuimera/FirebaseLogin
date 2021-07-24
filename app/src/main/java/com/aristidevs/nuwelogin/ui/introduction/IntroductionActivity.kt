@@ -7,7 +7,9 @@ import androidx.lifecycle.Observer
 import com.aristidevs.nuwelogin.databinding.ActivityIntroductionBinding
 import com.aristidevs.nuwelogin.ui.login.LoginActivity
 import com.aristidevs.nuwelogin.ui.signin.SignInActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class IntroductionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityIntroductionBinding
@@ -22,6 +24,7 @@ class IntroductionActivity : AppCompatActivity() {
 
     private fun initUI() {
         initListeners()
+        initObservers()
     }
 
     private fun initListeners() {
@@ -29,6 +32,10 @@ class IntroductionActivity : AppCompatActivity() {
             btnLogin.setOnClickListener { introductionViewModel.onLoginSelected() }
             btnSingIn.setOnClickListener { introductionViewModel.onSignInSelected() }
         }
+    }
+
+
+    private fun initObservers() {
         introductionViewModel.navigateToLogin.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 goToLogin()
@@ -40,6 +47,7 @@ class IntroductionActivity : AppCompatActivity() {
             }
         })
     }
+
 
     private fun goToSingIn() {
         startActivity(SignInActivity.create(this))

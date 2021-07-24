@@ -24,23 +24,28 @@ class VerificationViewModel @Inject constructor(
     val navigateToVerifyAccount: LiveData<Event<Boolean>>
         get() = _navigateToVerifyAccount
 
+    private val _showContinueButton = MutableLiveData<Event<Boolean>>()
+    val showContinueButton: LiveData<Event<Boolean>>
+        get() = _showContinueButton
+
     init {
         viewModelScope.launch { sendEmailVerificationUseCase() }
         viewModelScope.launch {
 
             verifyEmailUseCase()
                 .catch {
-                    Timber.i("aristides 2 ${it.message}")
+                    Timber.i("Verification error: ${it.message}")
                 }
                 .collect { verification ->
-                    Timber.i("aristides 3")
                     if(verification){
-                        Timber.i("aristides 4")
-                        _navigateToVerifyAccount.value = Event(verification)
+                        _showContinueButton.value = Event(verification)
                     }
-                    Timber.i("aristides 5")
                 }
 
         }
+    }
+
+    fun onGoToDetailSelected() {
+        _navigateToVerifyAccount.value = Event(true)
     }
 }

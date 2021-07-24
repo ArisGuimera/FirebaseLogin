@@ -1,24 +1,33 @@
 <resources>
     <string name="app_name">Nuwe Login</string>
+
     <string name="login_subtitle"><![CDATA[Empoyering tech amazing individuals to shine trough hackathons, talks & challenges]]></string>
     <string name="login_sign_in">¿Todavía no tienes cuenta? Regístrate</string>
     <string name="login_button_loggin">INICIAR SESIÓN</string>
     <string name="login_hint_password">Contraseña</string>
     <string name="login_hint_user">Usuario o correo</string>
-    <string name="introduction_button_signin">Crear cuenta</string>
-    <string name="verification_button_go_to_nuwe">Vamos a nuwe</string>
-    <string name="signin_form_real_name">Nombre completo</string>
-    <string name="signin_form_nickname">Nombre público de usuario</string>
-    <string name="signin_form_email">Correo electrónico</string>
-    <string name="signin_form_password">Contraseña</string>
-    <string name="signin_form_repeat_password">Repetir contraseña</string>
     <string name="login_error_mail">El email no es válido</string>
     <string name="login_error_password">Debe contener al menos 6 caracteres</string>
-    <string name="feature_not_allowed">No se pedía en la prueba.</string>
     <string name="login_footer_unselected">¿Todavía no tienes cuenta?</string>
     <string name="login_footer_selected">Regístrate</string>
     <string name="login_error_dialog_title">No hemos encontrado el usuario</string>
     <string name="login_error_dialog_body">Verifique los datos o vuelva a intentarlo</string>
     <string name="login_error_dialog_negative_action">Cancelar</string>
     <string name="login_error_dialog_positive_action">Reintentar</string>
+
+
+    <string name="introduction_button_signin">Crear cuenta</string>
+
+    <string name="verification_button_go_to_nuwe">Vamos a nuwe</string>
+
+    <string name="signin_form_real_name">Nombre completo</string>
+    <string name="signin_form_nickname">Nombre público de usuario</string>
+    <string name="signin_form_email">Correo electrónico</string>
+    <string name="signin_form_password">Contraseña</string>
+    <string name="signin_form_repeat_password">Repetir contraseña</string>
+
+    <string name="feature_not_allowed">No se pedía en la prueba.</string>
+    <string name="signin_footer_unselected">¿Ya tienes cuenta?</string>
+    <string name="signin_footer_selected">Inicia sesión</string>
+
 </resources>

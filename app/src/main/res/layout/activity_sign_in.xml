@@ -12,96 +12,152 @@
         layout="@layout/view_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/tilLayout"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/formView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <!--    <androidx.appcompat.widget.AppCompatEditText-->
-    <!--        android:id="@+id/etNick"-->
-    <!--        style="@style/FormEditText"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="44dp"-->
-    <!--        android:layout_marginBottom="12dp"-->
-    <!--        android:hint="@string/signin_form_nickname"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/etName"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/viewHeader" />-->
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilLayout"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:gravity="center_vertical"
-        app:errorEnabled="true"
-        app:errorIconDrawable="@null"
-        app:errorTextColor="@color/primary"
-        app:layout_constraintBottom_toTopOf="@+id/etName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewHeader"
-        tools:hint="Matricula">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            style="@style/FormEditText"
-            android:inputType="textPassword|textVisiblePassword" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etName"
-        style="@style/FormEditText"
+    <ScrollView
+        android:id="@+id/formView"
         android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="12dp"
-        android:hint="@string/signin_form_real_name"
-        app:layout_constraintBottom_toTopOf="@+id/etEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilLayout" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etEmail"
-        style="@style/FormEditText"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="12dp"
-        android:hint="@string/signin_form_email"
-        android:text="aris.guimera@gmail.com"
-        app:layout_constraintBottom_toTopOf="@+id/etPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etPassword"
-        style="@style/FormEditText"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="12dp"
-        android:text="Fqpfxmk9"
-        android:hint="@string/signin_form_password"
-        app:layout_constraintBottom_toTopOf="@+id/etVerifyPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etVerifyPassword"
-        style="@style/FormEditText"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:hint="@string/signin_form_repeat_password"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/btnCreateAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/viewHeader">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/btnCreateAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewHeader">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNickname"
+                style="@style/FormTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/tilRealName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNickname"
+                    style="@style/FormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signin_form_nickname"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColorHighlight="@color/error_dark"
+                    android:textColorHint="@color/error_dark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRealName"
+                style="@style/FormTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/tilEmail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilNickname">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRealName"
+                    style="@style/FormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signin_form_real_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColorHighlight="@color/error_dark"
+                    android:textColorHint="@color/error_dark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmail"
+                style="@style/FormTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/tilPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilRealName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    style="@style/FormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signin_form_email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:textColorHighlight="@color/error_dark"
+                    android:textColorHint="@color/error_dark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/FormTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/tilRepeatPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    style="@style/FormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signin_form_password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:textColorHighlight="@color/error_dark"
+                    android:textColorHint="@color/error_dark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRepeatPassword"
+                style="@style/FormTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilPassword">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRepeatPassword"
+                    style="@style/FormEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signin_form_repeat_password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:textColorHighlight="@color/error_dark"
+                    android:textColorHint="@color/error_dark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCreateAccount"
@@ -109,12 +165,12 @@
         android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginVertical="24dp"
         android:text="@string/login_button_loggin"
         app:layout_constraintBottom_toTopOf="@+id/viewBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etVerifyPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/formView" />
 
     <include
         android:id="@+id/viewBottom"

@@ -15,6 +15,10 @@ import javax.inject.Inject
 class SignInViewModel @Inject constructor(val createAccountUseCase: CreateAccountUseCase) :
     ViewModel() {
 
+    private val _navigateToLogin = MutableLiveData<Event<Boolean>>()
+    val navigateToLogin: LiveData<Event<Boolean>>
+        get() = _navigateToLogin
+
     private val _navigateToVerifyEmail = MutableLiveData<Event<Boolean>>()
     val navigateToVerifyEmail: LiveData<Event<Boolean>>
         get() = _navigateToVerifyEmail
@@ -29,6 +33,10 @@ class SignInViewModel @Inject constructor(val createAccountUseCase: CreateAccoun
 
         }
 
+    }
+
+    fun onLoginSelected() {
+        _navigateToLogin.value = Event(true)
     }
 
 }

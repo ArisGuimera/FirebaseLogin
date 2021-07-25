@@ -1,5 +1,9 @@
 # Login Nuwe - [Reto Semana 1](https://nuwe.io/challenge/reto-mobile-individual-semana-1)
 
+<p align="center">
+<img align="center" width="300" alt="portfolio_view" src="./docs/logo.png">
+</p>
+
 ## Definición del proyecto:
 
 El reto consta de cuatro pantallas, en ellas podremos registrarnos, logearnos e incluso validar la cuenta.1

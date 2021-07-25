@@ -22,10 +22,21 @@ Este proyecto ha sido creado en menos de una semana, siguiendo buenas prácticas
 La primera pantalla nos servirá de navegador hacia el login o el registro. Como curiosidad el *splash* está optimizado para evitar el típico *delay* inicial en blanco.
 TODAS las navegaciones usar un *wrapper* event para optimizar más el livedata en eventos de una única acción.
 
-![IntroductionView](./docs/introductionview.png)
+<p align="center">
+<img align="center" width="300" alt="portfolio_view" src="./docs/introductionview.png">
+</p>
+
+## Pantalla de login
+
+Aquí podremos iniciar sesión. Además comprobará si la cuenta ha sido verificada para acceder al supuesto detalle (no pedido en la prueba) o a la pantalla de verificación.
+
+El control de errores se ejecuta de dos formas distintas. En tiempo real, cada vez que uno de los campos pierde el foco o se actualiza. Y una gestión secundaria por si el login no hace *match* en la base de datos.
+
+<p align="center">
+<img align="center" width="300" alt="portfolio_view" src="./docs/login_animation.gif">
+<img align="center" width="300" alt="portfolio_view" src="./docs/login_validation.gif">
+<img align="center" width="300" alt="portfolio_view" src="./docs/login_error.gif">
+</p>
 
 
 ## FAQ
-
-En este proyecto encontrarás un proyecto MVVM para Android en Kotlin que podrás seguir con los capítulos de CursoKollin.com Cada capítulo tendrá una rama con los conocimientos explicados y en **Master** tendrás la última versión.
-- [MVVM básico](https://cursokotlin.com/mvvm-en-android-con-kotlin-livedata-y-view-binding-android-architecture-components) - Primera versión de MVVM, lo encontrarás en la rama [**simpleMVVM**](https://github.com/ArisGuimera/SimpleAndroidMVVM/tree/simpleMVVM) - [Clean Architecture + Retrofit y corrutinas](https://cursokotlin.com/mvvm-en-android-con-kotlin-implementando-retrofit-corrutinas-y-clean-architecture/) - Segunda versión de MVVM, donde hemos añadido peticiones en red consumiendo un API con Retrofit 2 y corrutinas. También hemos añadido clean architecture. [**CleanRetrofit**](https://github.com/ArisGuimera/SimpleAndroidMVVM/tree/CleanRetrofit) Recuerda que también puedes ver los capítulos por escritos [en mi canal de Youtube](https://youtube.com/c/aristidevs)

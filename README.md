@@ -22,6 +22,7 @@ Este proyecto ha sido creado en menos de una semana, siguiendo buenas prácticas
 - Flows
 - StateFlow
 - Vistas reutilizables y TODO creado con *Constraint Layout* para optimizar los recursos de la UI
+- Diseños y estilos creados para la reutilización por todo el proyecto
 
 ## Pantalla de introducción
 La primera pantalla nos servirá de navegador hacia el login o el registro. Como curiosidad el *splash* está optimizado para evitar el típico *delay* inicial en blanco.

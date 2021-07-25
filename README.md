@@ -17,6 +17,7 @@ Este proyecto ha sido creado en menos de una semana, siguiendo buenas prácticas
 - LiveData
 - Flows
 - StateFlow
+- Vistas reutilizables y TODO creado con *Constraint Layout* para optimizar los recursos de la UI
 
 ## Pantalla de introducción
 La primera pantalla nos servirá de navegador hacia el login o el registro. Como curiosidad el *splash* está optimizado para evitar el típico *delay* inicial en blanco.
@@ -32,11 +33,38 @@ Aquí podremos iniciar sesión. Además comprobará si la cuenta ha sido verific
 
 El control de errores se ejecuta de dos formas distintas. En tiempo real, cada vez que uno de los campos pierde el foco o se actualiza. Y una gestión secundaria por si el login no hace *match* en la base de datos.
 
+Además la propia UI se actualiza reactivamente a través de su propio *StateFlow*.
+
 <p align="center">
 <img align="center" width="300" alt="portfolio_view" src="./docs/login_animation.gif">
 <img align="center" width="300" alt="portfolio_view" src="./docs/login_validation.gif">
 <img align="center" width="300" alt="portfolio_view" src="./docs/login_error.gif">
 </p>
 
+## Pantalla de registro
+
+En esta pantalla tendremos que rellenar un formulario con validaciones similares a la pantalla del login. Si todo es correcto nos registrará y además creará en una tabla de la base de datos de *Firebase* un documento para dicho usuario donde almacenará el *nickName*, nombre completo y email.
+
+También dispone de un *scroll* ya que al ser tan larga puede acortarse en dispositivos pequeños.
+
+<p align="center">
+<img align="center" width="300" alt="portfolio_view" src="./docs/signin.png">
+</p>
+
+## Verificación de cuenta
+
+Cuando el usuario hace *login* o se registra le llevaremos a una pantalla que mandará un mail al usuario para que verifique la cuenta y se quedará suscrito a cambios para que una vez lo acepte, en un perioro máximo de un segundo, la vista se modifique mostrando un botón para acceder al suspuesto detalle.
+
+También hay una animación implementada con *lottie*.
+
+<p align="center">
+<img align="center" width="300" alt="portfolio_view" src="./docs/verification.gif">
+</p>
 
 ## FAQ
+
+- ¿No usas *fragments*?
+  - Creo que se abusa de los *fragments*, todas estas pantallas no comparten lógica por la cual podríamos aprovechar, por lo que creo que lo mejor es usar distintas *activities*.
+
+- Pero... ¿Hay vistas similares, no?
+  - Sí, es por ello que las vistas que son iguales se han abstraido para reutilizarlas en todas partes.

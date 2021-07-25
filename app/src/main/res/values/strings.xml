@@ -40,4 +40,5 @@
     <string name="dialog_success_positive">¡Gracias!</string>
 
     <string name="feature_not_allowed">Feature no solicitada :)</string>
+    <string name="signin_button_createaccount">Crear mi cuenta</string>
 </resources>

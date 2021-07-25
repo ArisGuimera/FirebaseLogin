@@ -54,18 +54,23 @@ class SignInActivity : AppCompatActivity() {
 
         binding.etEmail.loseFocusAfterAction(EditorInfo.IME_ACTION_NEXT)
         binding.etEmail.setOnFocusChangeListener { _, hasFocus -> onFieldChanged(hasFocus) }
+        binding.etEmail.onTextChanged { onFieldChanged() }
 
         binding.etNickname.loseFocusAfterAction(EditorInfo.IME_ACTION_NEXT)
         binding.etNickname.setOnFocusChangeListener { _, hasFocus -> onFieldChanged(hasFocus) }
+        binding.etNickname.onTextChanged { onFieldChanged() }
 
         binding.etRealName.loseFocusAfterAction(EditorInfo.IME_ACTION_NEXT)
         binding.etRealName.setOnFocusChangeListener { _, hasFocus -> onFieldChanged(hasFocus) }
+        binding.etRealName.onTextChanged { onFieldChanged() }
 
         binding.etPassword.loseFocusAfterAction(EditorInfo.IME_ACTION_NEXT)
         binding.etPassword.setOnFocusChangeListener { _, hasFocus -> onFieldChanged(hasFocus) }
+        binding.etPassword.onTextChanged { onFieldChanged() }
 
         binding.etRepeatPassword.loseFocusAfterAction(EditorInfo.IME_ACTION_DONE)
         binding.etRepeatPassword.setOnFocusChangeListener { _, hasFocus -> onFieldChanged(hasFocus) }
+        binding.etRepeatPassword.onTextChanged { onFieldChanged() }
 
         binding.viewBottom.tvFooter.setOnClickListener { signInViewModel.onLoginSelected() }
 
@@ -135,7 +140,7 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private fun onFieldChanged(hasFocus: Boolean) {
+    private fun onFieldChanged(hasFocus: Boolean = false) {
         if (!hasFocus) {
             signInViewModel.onFieldsChanged(
                 UserSignIn(

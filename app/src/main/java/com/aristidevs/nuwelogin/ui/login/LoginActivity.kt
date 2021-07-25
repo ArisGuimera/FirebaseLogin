@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.aristidevs.nuwelogin.R
 import com.aristidevs.nuwelogin.core.dialog.DialogFragmentLauncher
 import com.aristidevs.nuwelogin.core.dialog.ErrorDialog
+import com.aristidevs.nuwelogin.core.dialog.LoginSuccessDialog
 import com.aristidevs.nuwelogin.core.ex.*
 import com.aristidevs.nuwelogin.databinding.ActivityLoginBinding
 import com.aristidevs.nuwelogin.ui.login.model.UserLogin
@@ -54,10 +55,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initListeners() {
         binding.etEmail.loseFocusAfterAction(EditorInfo.IME_ACTION_NEXT)
-        binding.etEmail.setOnFocusChangeListener { _, hasFocus -> onFieldChanged(hasFocus) }
+        binding.etEmail.onTextChanged { onFieldChanged() }
 
         binding.etPassword.loseFocusAfterAction(EditorInfo.IME_ACTION_DONE)
         binding.etPassword.setOnFocusChangeListener { _, hasFocus -> onFieldChanged(hasFocus) }
+        binding.etPassword.onTextChanged { onFieldChanged() }
 
         binding.tvForgotPassword.setOnClickListener { loginViewModel.onForgotPasswordSelected() }
 
@@ -111,7 +113,6 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI(viewState: LoginViewState) {
         with(binding) {
             pbLoading.isVisible = viewState.isLoading
-            btnLogin.isEnabled = viewState.isLoginEnabled
             tilEmail.error =
                 if (viewState.isValidEmail) null else getString(R.string.login_error_mail)
             tilPassword.error =
@@ -119,7 +120,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun onFieldChanged(hasFocus: Boolean) {
+    private fun onFieldChanged(hasFocus: Boolean = false) {
         if (!hasFocus) {
             loginViewModel.onFieldsChanged(
                 email = binding.etEmail.text.toString(),
@@ -154,7 +155,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToDetail() {
-
+        LoginSuccessDialog.create().show(dialogLauncher, this)
     }
 
     private fun goToVerify() {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.aristidevs.nuwelogin.R
 import com.aristidevs.nuwelogin.databinding.ActivityIntroductionBinding
 import com.aristidevs.nuwelogin.ui.login.LoginActivity
 import com.aristidevs.nuwelogin.ui.signin.SignInActivity
@@ -16,6 +17,7 @@ class IntroductionActivity : AppCompatActivity() {
     private val introductionViewModel: IntroductionViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_Nuwe)
         super.onCreate(savedInstanceState)
         binding = ActivityIntroductionBinding.inflate(layoutInflater)
         setContentView(binding.root)

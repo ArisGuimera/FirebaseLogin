@@ -37,7 +37,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:padding="24dp"
         style="@style/BodyText"
         android:text="@string/verification_check_mail"
         app:layout_constraintTop_toBottomOf="@+id/viewPlaceholder"

@@ -35,6 +35,9 @@
     <string name="verification_button_go_to_nuwe">Vamos a nuwe</string>
     <string name="verification_check_mail">Para acceder a la aplicación verifica tu correo electrónico (recuerda mirar en SPAM).</string>
 
-    <string name="feature_not_allowed">No se pedía en la prueba.</string>
+    <string name="dialog_success_title">¡Demo completa!</string>
+    <string name="dialog_success_body">"Espero que te haya gustado este login usando buenas prácticas y buen rollo :) "</string>
+    <string name="dialog_success_positive">¡Gracias!</string>
 
+    <string name="feature_not_allowed">Feature no solicitada :)</string>
 </resources>

@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aristidevs.nuwelogin.core.Event
 import com.aristidevs.nuwelogin.domain.CreateAccountUseCase
-import com.aristidevs.nuwelogin.ui.login.model.UserLogin
 import com.aristidevs.nuwelogin.ui.signin.model.UserSignIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,12 +34,13 @@ class SignInViewModel @Inject constructor(val createAccountUseCase: CreateAccoun
     val viewState: StateFlow<SignInViewState>
         get() = _viewState
 
-    val showErrorDialog: LiveData<Boolean> get() = _showErrorDialog
     private var _showErrorDialog = MutableLiveData(false)
+    val showErrorDialog: LiveData<Boolean>
+        get() = _showErrorDialog
 
     fun onSignInSelected(userSignIn: UserSignIn) {
         val viewState = userSignIn.toSignInViewState()
-        if (viewState.userValidated()) {
+        if (viewState.userValidated() && userSignIn.isNotEmpty()) {
             signInUser(userSignIn)
         } else {
             onFieldsChanged(userSignIn)
@@ -69,13 +69,13 @@ class SignInViewModel @Inject constructor(val createAccountUseCase: CreateAccoun
     }
 
     private fun isValidOrEmptyEmail(email: String) =
-        Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()
 
     private fun isValidOrEmptyPassword(password: String, passwordConfirmation: String): Boolean =
-        (password.length >= MIN_PASSWORD_LENGTH && password == passwordConfirmation)
+        (password.length >= MIN_PASSWORD_LENGTH && password == passwordConfirmation) || password.isEmpty() || passwordConfirmation.isEmpty()
 
     private fun isValidName(name: String): Boolean =
-        name.length >= MIN_PASSWORD_LENGTH
+        name.length >= MIN_PASSWORD_LENGTH || name.isEmpty()
 
     private fun UserSignIn.toSignInViewState(): SignInViewState {
         return SignInViewState(

@@ -25,7 +25,6 @@ class AuthenticationService @Inject constructor(private val firebase: FirebaseCl
         firebase.auth.signInWithEmailAndPassword(email, password).await()
     }.toLoginResult()
 
-    //Peta con mal mail
     suspend fun createAccount(email: String, password: String): AuthResult? {
         return firebase.auth.createUserWithEmailAndPassword(email, password).await()
     }

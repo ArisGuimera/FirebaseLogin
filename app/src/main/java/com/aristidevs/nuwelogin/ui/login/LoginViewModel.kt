@@ -42,15 +42,25 @@ class LoginViewModel @Inject constructor(val loginUseCase: LoginUseCase) : ViewM
     val viewState: StateFlow<LoginViewState>
         get() = _viewState
 
-    val showErrorDialog: LiveData<UserLogin> get() = _showErrorDialog
     private var _showErrorDialog = MutableLiveData(UserLogin())
+    val showErrorDialog: LiveData<UserLogin>
+        get() = _showErrorDialog
 
     fun onLoginSelected(email: String, password: String) {
+        if (isValidEmail(email) && isValidPassword(password)) {
+            loginUser(email, password)
+        } else {
+            onFieldsChanged(email, password)
+        }
+    }
+
+    private fun loginUser(email: String, password: String) {
         viewModelScope.launch {
             _viewState.value = LoginViewState(isLoading = true)
             when (val result = loginUseCase(email, password)) {
                 LoginResult.Error -> {
-                    _showErrorDialog.value = UserLogin(email = email, password = password, showErrorDialog = true)
+                    _showErrorDialog.value =
+                        UserLogin(email = email, password = password, showErrorDialog = true)
                     _viewState.value = LoginViewState(isLoading = false)
                 }
                 is LoginResult.Success -> {
@@ -61,16 +71,15 @@ class LoginViewModel @Inject constructor(val loginUseCase: LoginUseCase) : ViewM
                     }
                 }
             }
+            _viewState.value = LoginViewState(isLoading = false)
         }
     }
 
     fun onFieldsChanged(email: String, password: String) {
-        _viewState.value =
-            LoginViewState(
-                isLoginEnabled = isValidOrEmptyEmail(email) && isValidOrEmptyPassword(password),
-                isValidEmail = isValidOrEmptyEmail(email),
-                isValidPassword = isValidOrEmptyPassword(password)
-            )
+        _viewState.value = LoginViewState(
+            isValidEmail = isValidEmail(email),
+            isValidPassword = isValidPassword(password)
+        )
     }
 
     fun onForgotPasswordSelected() {
@@ -81,10 +90,10 @@ class LoginViewModel @Inject constructor(val loginUseCase: LoginUseCase) : ViewM
         _navigateToSignIn.value = Event(true)
     }
 
-    private fun isValidOrEmptyEmail(email: String) =
+    private fun isValidEmail(email: String) =
         Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()
 
-    private fun isValidOrEmptyPassword(password: String): Boolean =
+    private fun isValidPassword(password: String): Boolean =
         password.length >= MIN_PASSWORD_LENGTH || password.isEmpty()
 
 }

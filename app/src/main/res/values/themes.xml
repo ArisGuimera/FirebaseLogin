@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.MVVMExample" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Nuwe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
@@ -13,18 +13,22 @@
         <item name="android:statusBarColor">@color/background_dark</item>
     </style>
 
+    <style name="SplashTheme" parent="Theme.Nuwe">
+        <item name="android:windowBackground">@drawable/view_background</item>
+    </style>
+
     <style name="CaptionText" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/secondary</item>
         <item name="android:gravity">center</item>
-        <!--        <font-->
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="BodyText" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/secondary</item>
         <item name="android:gravity">center</item>
-        <!--        <font-->
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="TitleText" parent="Widget.AppCompat.TextView">
@@ -32,7 +36,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/secondary</item>
         <item name="android:gravity">center</item>
-        <!--        <font-->
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
@@ -43,7 +47,7 @@
         <item name="android:textColor">@color/secondary</item>
         <item name="android:gravity">center</item>
         <item name="backgroundTint">@color/primary</item>
-        <!--        <font-->
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="SecondaryButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
@@ -54,7 +58,7 @@
         <item name="android:insetBottom">0dp</item>
         <item name="android:textColor">@color/primary</item>
         <item name="android:gravity">center</item>
-        <!--        <font-->
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="TertiaryButton" parent="Widget.AppCompat.TextView">
@@ -63,7 +67,7 @@
         <item name="android:insetBottom">0dp</item>
         <item name="android:textColor">@color/primary</item>
         <item name="android:gravity">center</item>
-        <!--        <font-->
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="FormEditText" parent="Widget.AppCompat.EditText">
@@ -74,7 +78,7 @@
         <item name="maxLines">1</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:textColorHint">@color/secondary_light</item>
-        <!--        <font-->
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="FormTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">

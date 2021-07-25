@@ -6,8 +6,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.aristidevs.nuwelogin.core.dialog.DialogFragmentLauncher
+import com.aristidevs.nuwelogin.core.dialog.LoginSuccessDialog
+import com.aristidevs.nuwelogin.core.ex.show
 import com.aristidevs.nuwelogin.databinding.ActivityVerificationBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class VerificationActivity : AppCompatActivity() {
@@ -16,6 +20,9 @@ class VerificationActivity : AppCompatActivity() {
         fun create(context: Context): Intent =
             Intent(context, VerificationActivity::class.java)
     }
+
+    @Inject
+    lateinit var dialogLauncher: DialogFragmentLauncher
 
     private lateinit var binding: ActivityVerificationBinding
     private val verificationViewModel: VerificationViewModel by viewModels()
@@ -39,7 +46,7 @@ class VerificationActivity : AppCompatActivity() {
     private fun initObservers() {
         verificationViewModel.navigateToVerifyAccount.observe(this, {
             it.getContentIfNotHandled()?.let {
-
+                LoginSuccessDialog.create().show(dialogLauncher, this)
             }
         })
 

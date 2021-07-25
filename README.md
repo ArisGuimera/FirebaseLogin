@@ -6,6 +6,7 @@ El reto consta de cuatro pantallas, en ellas podremos registrarnos, logearnos e 
 Este proyecto ha sido creado en menos de una semana, siguiendo buenas prácticas y todas las recomendaciones de Google.
 
 ## Características del proyecto:
+
     - Arquitectura MVVM.
     - *Clean Architecture*
     - *SOLID*
@@ -18,9 +19,8 @@ Este proyecto ha sido creado en menos de una semana, siguiendo buenas prácticas
     - StateFlow
 
 ## Pantalla de introducción
-
-    La primera pantalla nos servirá de navegador hacia el login o el registro. Como curiosidad el *splash* está optimizado para evitar el típico *delay* inicial en blanco.
-    TODAS las navegaciones usar un *wrapper* event para optimizar más el livedata en eventos de una única acción.
+La primera pantalla nos servirá de navegador hacia el login o el registro. Como curiosidad el *splash* está optimizado para evitar el típico *delay* inicial en blanco.
+TODAS las navegaciones usar un *wrapper* event para optimizar más el livedata en eventos de una única acción.
 
     ![IntroductionView](./docs/introductionview.png)
 

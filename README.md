@@ -7,22 +7,22 @@ Este proyecto ha sido creado en menos de una semana, siguiendo buenas prácticas
 
 ## Características del proyecto:
 
-    - Arquitectura MVVM.
-    - *Clean Architecture*
-    - *SOLID*
-    - Corrutinas
-    - Inyección de dependencias con *Dagger Hilt*
-    - Firebase (Tanto para login como para persistir en base de datos *realTime*)
-    - Splash optimizado
-    - LiveData
-    - Flows
-    - StateFlow
+- Arquitectura MVVM.
+- *Clean Architecture*
+- *SOLID*
+- Corrutinas
+- Inyección de dependencias con *Dagger Hilt*
+- Firebase (Tanto para login como para persistir en base de datos *realTime*)
+- Splash optimizado
+- LiveData
+- Flows
+- StateFlow
 
 ## Pantalla de introducción
 La primera pantalla nos servirá de navegador hacia el login o el registro. Como curiosidad el *splash* está optimizado para evitar el típico *delay* inicial en blanco.
 TODAS las navegaciones usar un *wrapper* event para optimizar más el livedata en eventos de una única acción.
 
-    ![IntroductionView](./docs/introductionview.png)
+![IntroductionView](./docs/introductionview.png)
 
 
 ## FAQ

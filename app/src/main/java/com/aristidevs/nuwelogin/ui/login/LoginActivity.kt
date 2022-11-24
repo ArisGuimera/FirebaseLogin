@@ -75,33 +75,33 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        loginViewModel.navigateToDetails.observe(this, {
+        loginViewModel.navigateToDetails.observe(this) {
             it.getContentIfNotHandled()?.let {
                 goToDetail()
             }
-        })
+        }
 
-        loginViewModel.navigateToSignIn.observe(this, {
+        loginViewModel.navigateToSignIn.observe(this) {
             it.getContentIfNotHandled()?.let {
                 goToSignIn()
             }
-        })
+        }
 
-        loginViewModel.navigateToForgotPassword.observe(this, {
+        loginViewModel.navigateToForgotPassword.observe(this) {
             it.getContentIfNotHandled()?.let {
                 goToForgotPassword()
             }
-        })
+        }
 
-        loginViewModel.navigateToVerifyAccount.observe(this, {
+        loginViewModel.navigateToVerifyAccount.observe(this) {
             it.getContentIfNotHandled()?.let {
                 goToVerify()
             }
-        })
+        }
 
-        loginViewModel.showErrorDialog.observe(this, { userLogin ->
+        loginViewModel.showErrorDialog.observe(this) { userLogin ->
             if (userLogin.showErrorDialog) showErrorDialog(userLogin)
-        })
+        }
 
         lifecycleScope.launchWhenStarted {
             loginViewModel.viewState.collect { viewState ->

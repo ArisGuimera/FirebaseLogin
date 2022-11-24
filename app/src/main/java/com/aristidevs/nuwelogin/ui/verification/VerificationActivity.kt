@@ -44,16 +44,16 @@ class VerificationActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        verificationViewModel.navigateToVerifyAccount.observe(this, {
+        verificationViewModel.navigateToVerifyAccount.observe(this) {
             it.getContentIfNotHandled()?.let {
                 LoginSuccessDialog.create().show(dialogLauncher, this)
             }
-        })
+        }
 
-        verificationViewModel.showContinueButton.observe(this, {
+        verificationViewModel.showContinueButton.observe(this) {
             it.getContentIfNotHandled()?.let {
                 binding.btnGoToDetail.isVisible = true
             }
-        })
+        }
     }
 }

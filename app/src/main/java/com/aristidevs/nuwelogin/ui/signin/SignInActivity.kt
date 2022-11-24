@@ -91,17 +91,17 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        signInViewModel.navigateToVerifyEmail.observe(this, {
+        signInViewModel.navigateToVerifyEmail.observe(this) {
             it.getContentIfNotHandled()?.let {
                 goToVerifyEmail()
             }
-        })
+        }
 
-        signInViewModel.navigateToLogin.observe(this, {
+        signInViewModel.navigateToLogin.observe(this) {
             it.getContentIfNotHandled()?.let {
                 goToLogin()
             }
-        })
+        }
 
         lifecycleScope.launchWhenStarted {
             signInViewModel.viewState.collect { viewState ->
@@ -109,9 +109,9 @@ class SignInActivity : AppCompatActivity() {
             }
         }
 
-        signInViewModel.showErrorDialog.observe(this, { showError ->
+        signInViewModel.showErrorDialog.observe(this) { showError ->
             if (showError) showErrorDialog()
-        })
+        }
     }
 
     private fun showErrorDialog() {

@@ -73,3 +73,11 @@ También hay una animación implementada con *lottie*.
 
 - Pero... ¿Hay vistas similares, no?
   - Sí, es por ello que las vistas que son iguales se han abstraido para reutilizarlas en todas partes.
+  
+## COLABORA.
+
+Este proyecto es totalmente GRATUITO por lo que puedes aportar tu grano de arena de múltiples formas.
+
+- Dale a FAV al proyecto (Star)
+- Sígueme en mis [redes sociales](https://aristi.dev)
+- Nomíname a [GITHUB STAR](https://stars.github.com/nominate/)
